@@ -1,0 +1,79 @@
+{
+  "name": "@open-wallet/core",
+  "version": "1.0.0",
+  "description": "A secure, tokenized mobile wallet system optimized for vault transactions",
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:integration": "jest --testPathPattern=tests/integration",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write \"src/**/*.js\"",
+    "migrate": "node scripts/migrate.js",
+    "seed": "node scripts/seed.js",
+    "build": "npm run lint && npm test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wallet",
+    "payment",
+    "tokenization",
+    "apple-pay",
+    "google-pay",
+    "mobile-payments",
+    "pci-dss",
+    "basis-theory",
+    "fintech"
+  ],
+  "author": "Open Wallet Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThomasC3/open-wallet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThomasC3/open-wallet/issues"
+  },
+  "homepage": "https://github.com/ThomasC3/open-wallet#readme",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "pg": "^8.11.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "joi": "^17.11.0",
+    "winston": "^3.11.0",
+    "redis": "^4.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "nodemon": "^3.0.0",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
+    "@types/node": "^20.10.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "testMatch": [
+      "**/tests/**/*.spec.js"
+    ]
+  }
+}
