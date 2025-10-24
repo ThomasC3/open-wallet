@@ -2,7 +2,8 @@
 
 **A secure, tokenized mobile wallet system optimized for vault transactions and revenue growth**
 
-Open Wallet is an open-source wallet infrastructure that transforms how businesses handle payments by leveraging tokenized vaults to maximize revenue while maintaining PCI DSS compliance. By pre-funding user wallets and eliminating per-transaction payment processing fees, businesses can dramatically reduce costs and increase profitability.
+Open Wallet is an open-source wallet infrastructure that transforms how businesses handle payments by leveraging tokenized vaults to maximize revenue while maintaining PCI DSS compliance. 
+By pre-funding user wallets and eliminating per-transaction payment processing fees, businesses can dramatically reduce costs and increase profitability.
 
 ## Table of Contents
 
