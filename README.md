@@ -4,6 +4,21 @@
 
 Open Wallet is an open-source wallet infrastructure that transforms how businesses handle payments by leveraging tokenized vaults to maximize revenue while maintaining PCI DSS compliance. By pre-funding user wallets and eliminating per-transaction payment processing fees, businesses can dramatically reduce costs and increase profitability.
 
+## Table of Contents
+
+- [Why Tokenized Wallets?](#why-tokenized-wallets)
+- [Revenue Optimization Strategies](#revenue-optimization-strategies)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [API Documentation](#api-documentation)
+- [Security](#security)
+- [Mobile Integration](#mobile-integration)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Why Tokenized Wallets?
 
 ### Revenue Optimization
@@ -62,20 +77,7 @@ ROI: 566% improvement in transaction margin
 **Marketplaces**: Facilitate peer-to-peer transfers; reduce platform payment costs
 **Service Platforms**: Streamline contractor payouts; reduce transaction overhead
 
-## Table of Contents
 
-- [Why Tokenized Wallets?](#why-tokenized-wallets)
-- [Revenue Optimization Strategies](#revenue-optimization-strategies)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Quick Start](#quick-start)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [API Documentation](#api-documentation)
-- [Security](#security)
-- [Mobile Integration](#mobile-integration)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Revenue Optimization Strategies
 
