@@ -52,6 +52,7 @@ ROI: 566% improvement in transaction margin
 ### Industry Use Cases
 
 **Ride-sharing & Delivery**: Eliminate per-ride payment fees; users pre-load wallets
+
 **Subscription Services**: Reduce failed payment churn; maintain continuous service
 
 **Gaming & Entertainment**: Enable micro-transactions; increase impulse purchases
