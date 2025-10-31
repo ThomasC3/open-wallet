@@ -296,6 +296,109 @@ function calculateWalletROI(params) {
 // Result: $3.2M annual savings (82% fee reduction)
 ```
 
+## UI Kit
+
+**Build Your Own Branded Wallet Experience**
+
+Open Wallet includes a complete, production-ready UI Kit for building beautiful, customizable wallet interfaces. Create your own branded wallet experience in minutes with pre-built React components, themes, and design tokens.
+
+### 🎨 UI Kit Features
+
+- **Pre-built Components**: 20+ production-ready React components
+- **Fully Themeable**: Complete design token system with light/dark themes
+- **Responsive Design**: Mobile-first components that work everywhere
+- **Accessible**: WCAG 2.1 AA compliant
+- **TypeScript Support**: Full type definitions included
+- **Framework Agnostic**: Use with React, React Native, or Next.js
+
+### Quick UI Kit Example
+
+```jsx
+import { WalletProvider, WalletDashboard } from '@open-wallet/ui-kit';
+
+function App() {
+  return (
+    <WalletProvider
+      theme={{
+        colors: {
+          primary: '#007AFF',
+          gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        },
+        brandName: 'Your Brand'
+      }}
+    >
+      <WalletDashboard />
+    </WalletProvider>
+  );
+}
+```
+
+**Result**: A complete, branded wallet interface with balance display, transaction history, and payment actions.
+
+### Available Components
+
+**Layout Components**
+- `WalletDashboard` - Complete wallet interface
+- `WalletCard` - Balance display with customizable design
+- `TransactionList` - Scrollable transaction feed
+
+**Payment Components**
+- `AddFundsModal` - Multi-method payment modal
+- `ApplePayButton` / `GooglePayButton` - Native payment buttons
+- `PaymentMethodSelector` - Saved payment method chooser
+
+**UI Components**
+- `Button` - Customizable buttons (5 variants, 3 sizes)
+- `Input` - Form inputs with validation
+- `Card` - Container with elevation
+- `Badge` - Status indicators
+- `LoadingSpinner` - Loading states
+
+### Theming System
+
+```javascript
+// Custom theme configuration
+const myTheme = {
+  colors: {
+    primary: '#FF6B6B',
+    gradient: 'linear-gradient(to right, #ff6b6b, #feca57)'
+  },
+  typography: {
+    fontFamily: 'Poppins, sans-serif'
+  },
+  borderRadius: {
+    card: '24px'
+  }
+};
+```
+
+### Pre-built Themes
+
+- **Light Theme** (Default) - Clean, modern interface
+- **Dark Theme** - Sleek dark mode
+- **High Contrast** - Accessibility-focused
+- **Minimal** - Clean, simple design
+- **Premium** - Luxury card designs
+
+### Complete Documentation
+
+Full UI Kit documentation with live examples: [ui-kit/README.md](ui-kit/README.md)
+
+### Try It Now
+
+```bash
+npm install @open-wallet/ui-kit
+```
+
+Or explore the Storybook:
+```bash
+cd ui-kit
+npm install
+npm run storybook
+```
+
+---
+
 ## Features
 
 ### Core Wallet Functionality
