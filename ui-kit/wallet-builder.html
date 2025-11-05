@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Wallet - White-Label Wallet Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-beautiful-dnd@13.1.1/dist/react-beautiful-dnd.min.js"></script>
+    <style>
+        :root {
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --color-slate-50: #f8fafc;
+            --color-slate-100: #f1f5f9;
+            --color-slate-200: #e2e8f0;
+            --color-slate-300: #cbd5e1;
+            --color-slate-400: #94a3b8;
+            --color-slate-500: #64748b;
+            --color-slate-600: #475569;
+            --color-slate-700: #334155;
+            --color-slate-800: #1e293b;
+            --color-slate-900: #0f172a;
+            --color-primary: #3b82f6;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-slate-50);
+            color: var(--color-slate-800);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .app-shell {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 32px 48px 16px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--color-slate-200);
+        }
+        .app-header__copy h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+        }
+        .app-header__copy p {
+            margin: 0;
+            color: var(--color-slate-500);
+        }
+        .app-header__meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .meta-chip {
+            background: #ffffff;
+            border: 1px solid var(--color-slate-200);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-slate-600);
+        }
+        .builder-container {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid var(--color-slate-200);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            z-index: 10;
+            overflow-y: auto;
+        }
+        .main-canvas {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+            background-color: var(--color-slate-100);
+            overflow-y: auto;
+        }
+        .config-panel {
+            width: 300px;
+            background-color: #ffffff;
+            border-left: 1px solid var(--color-slate-200);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            overflow-y: auto;
+        }
+        .sidebar h3, .config-panel h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-slate-900);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-slate-200);
+            padding-bottom: var(--spacing-sm);
+        }
+        .component-item {
+            user-select: none;
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            background-color: var(--color-slate-50);
+            border: 1px solid var(--color-slate-200);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: 14px;
+            cursor: grab;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s ease;
+        }
+        .component-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+        .wallet-preview-container {
+            background-color: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            width: 375px; /* iPhone-like width */
+            height: 700px;
+            overflow-y: auto;
+            padding: var(--spacing-md);
+        }
+        .wallet-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            margin: -16px -16px 16px -16px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .wallet-logo img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+        .wallet-header-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .wallet-flow-name {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.8;
+        }
+        .wallet-header h3 {
+            margin: 4px 0 0;
+            font-size: 18px;
+        }
+        .balance-display {
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .balance-amount {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 12px 0 6px;
+        }
+        .balance-label {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.8;
+            margin: 0;
+        }
+        .balance-subheadline {
+            font-size: 12px;
+            opacity: 0.7;
+            margin: 0;
+        }
+        .action-button {
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .action-button--primary {
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        .action-button--secondary {
+            border: 1px solid currentColor;
+            background: transparent;
+        }
+        .action-button:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-md);
+        }
+        .canvas-dropzone {
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .canvas-component {
+            border-radius: 16px;
+        }
+        .canvas-component--selected {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 6px;
+        }
+        .placeholder-card {
+            text-align: center;
+            padding: 48px 16px;
+            border: 2px dashed var(--color-slate-300);
+            border-radius: 16px;
+            color: var(--color-slate-500);
+        }
+        .payment-section {
+            border: 1px solid var(--color-slate-200);
+            border-radius: 16px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: var(--shadow-sm);
+        }
+        .payment-section + .payment-section {
+            margin-top: 12px;
+        }
+        .payment-section__title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .payment-section__subtitle {
+            margin: 6px 0 0;
+            font-size: 13px;
+            color: var(--color-slate-500);
+        }
+        .payment-section__content {
+            margin-top: 12px;
+        }
+        .payment-badges {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        .payment-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--color-slate-900);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .payment-badges--list {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .payment-badges--list .payment-badge {
+            background: transparent;
+            border: 1px solid var(--color-slate-200);
+            color: var(--color-slate-700);
+            border-radius: 12px;
+        }
+        .wallet-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .wallet-button {
+            border: none;
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        .wallet-button:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        .empty-state {
+            margin: 0;
+            font-size: 13px;
+            color: var(--color-slate-500);
+        }
+        .payout-list {
+            margin: 12px 0 0;
+            padding-left: 18px;
+            color: var(--color-slate-600);
+            font-size: 14px;
+        }
+        .config-panel .input-group {
+            margin-bottom: var(--spacing-md);
+        }
+        .config-panel label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-slate-600);
+        }
+        .config-panel select,
+        .config-panel input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--color-slate-300);
+            font-size: 14px;
+        }
+        .config-panel input[type="color"] {
+            width: 100%;
+            height: 40px;
+            padding: 4px;
+            border-radius: 8px;
+            border: 1px solid var(--color-slate-300);
+            background: #fff;
+        }
+        .flow-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .flow-tab {
+            border-radius: 999px;
+            border: 1px solid var(--color-slate-300);
+            background: transparent;
+            padding: 6px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--color-slate-600);
+            transition: all 0.2s ease;
+        }
+        .flow-tab--active {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background-color: rgba(59, 130, 246, 0.12);
+        }
+        .flow-tab--add {
+            border-style: dashed;
+        }
+        .panel-section {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-slate-200);
+        }
+        .panel-section h4 {
+            margin: 0 0 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-slate-700);
+        }
+        .stacked-input {
+            margin-top: 8px;
+        }
+        .input-caption {
+            font-weight: 400;
+            color: var(--color-slate-400);
+        }
+        .input-group.checkbox {
+            display: flex;
+            align-items: center;
+        }
+        .input-group.checkbox label {
+            font-weight: 500;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .input-group.checkbox-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .checkbox-group__label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-slate-500);
+            margin-bottom: 8px;
+        }
+        .checkbox-grid {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--color-slate-600);
+        }
+        .remove-button {
+            margin-top: 12px;
+            background: #fee2e2;
+            border: 1px solid #f87171;
+            color: #b91c1c;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="./dist/wallet-builder.bundle.js"></script>
+</body>
+</html>
