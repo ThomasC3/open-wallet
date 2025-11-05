@@ -1,43 +1,23 @@
 # OpenWallet
 
-OpenWallet is a comprehensive suite of tools for creating custom, branded wallet experiences. It consists of two main parts:
-
-1.  **The OpenWallet SDK**: A powerful JavaScript library that handles the core logic of payments, balances, and transactions across multiple payment types.
-2.  **The Wallet Builder**: A user-friendly, drag-and-drop interface for designing and configuring your wallet's UI without writing code.
+OpenWallet is a suite of tools for creating custom, branded wallet experiences. This repository contains the **Wallet Builder**, a user-friendly, drag-and-drop interface for designing and configuring your wallet's UI without writing code.
 
 ## Key Features
 
--   **Multiple Payment Types**: A pluggable architecture for integrating various payment channels.
--   **White-Label UI Builder**: A drag-and-drop tool to build a wallet UI that matches your brand.
--   **Themeable Components**: A library of React components that can be styled to your needs.
--   **Secure**: Core logic is handled by the SDK, abstracting away sensitive operations.
+-   **Visual Wallet Builder**: A simple, browser-based tool to design your wallet's look and feel.
+-   **Drag-and-Drop**: Easily add and arrange components like balances and buttons.
+-   **Real-time Branding**: Customize colors and text and see your changes instantly.
+-   **Code Export**: The builder will generate a code snippet to use in your application (feature coming soon).
 
-## Quick Start
+## How to Use the Wallet Builder
 
-### 1. Wallet Builder
-
-To get started with the UI builder:
-
-1.  Open the `wallet-builder.html` file in your browser.
-2.  Drag and drop components from the left-hand palette onto the central canvas.
-3.  Use the right-hand panel to configure branding, colors, and text for your wallet.
-
-### 2. Using the SDK (Coming Soon)
-
-The SDK will provide the core functionality for your wallet.
-
-```javascript
-import OpenWallet from '@open-wallet/sdk';
-
-const wallet = new OpenWallet({ apiKey: 'YOUR_API_KEY' });
-
-const balance = await wallet.getBalance();
-```
+1.  **Open the file**: Open the `wallet-builder.html` file directly in your web browser.
+2.  **Drag Components**: Drag components like "Wallet Balance" or "Pay Now Button" from the left-hand component panel onto the phone preview in the center.
+3.  **Customize**: Click on a component in the preview to see its options. Use the right-hand configuration panel to change colors, text, and other properties.
 
 ## Development
 
-To contribute or run the project locally:
+This project is built with React and is designed to run directly in the browser without a build step.
 
-1.  Clone the repository.
-2.  Install dependencies: `npm install`
-3.  To view component examples, run Storybook: `npm run storybook`
+-   To view the component library, you can use Storybook: `npm run storybook`
+-   To make changes, you can edit the `wallet-builder.html` file directly.
