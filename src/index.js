@@ -12,11 +12,18 @@ const config = require('./config');
 const { connectDatabase } = require('./utils/database');
 const logger = require('./utils/logger');
 
-// Import routes
+const WalletService = require('./services/wallet');
+const TokenizationService = require('./services/tokenization');
+const MobilePaymentService = require('./services/mobilePayment');
 const walletRoutes = require('./routes/wallet');
-const paymentRoutes = require('./routes/payment');
-const transactionRoutes = require('./routes/transaction');
-const adminRoutes = require('./routes/admin');
+const tokenizationRoutes = require('./routes/tokenization');
+const mobilePaymentRoutes = require('./routes/mobilePayment');
+
+// Initialize services
+const db = require('./utils/database');
+const walletService = new WalletService(db);
+const tokenizationService = new TokenizationService();
+const mobilePaymentService = new MobilePaymentService(tokenizationService, walletService);
 
 // Initialize Express app
 const app = express();
@@ -51,11 +58,21 @@ app.get('/health', (req, res) => {
   });
 });
 
+const { graphqlHTTP } = require('express-graphql');
+const schema = require('./graphql/schema')(walletService);
+
 // API routes
-app.use('/api/v1/wallet', walletRoutes);
-app.use('/api/v1/payment', paymentRoutes);
-app.use('/api/v1/transaction', transactionRoutes);
-app.use('/api/v1/admin', adminRoutes);
+app.use('/api/v1/wallet', walletRoutes(walletService));
+app.use('/api/v1/tokens', tokenizationRoutes(tokenizationService));
+app.use('/api/v1/payments', mobilePaymentRoutes(mobilePaymentService));
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  }),
+);
 
 // Root endpoint
 app.get('/', (req, res) => {
