@@ -1,12 +1,12 @@
 :root {
-  --bg: #03040a;
-  --fg: #f7f9ff;
-  --muted: #a7b4cd;
-  --accent: #7c78ff;
-  --accent-secondary: #5ce0d8;
-  --surface: rgba(13, 18, 36, 0.7);
-  --surface-alt: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.12);
+  --bg: #06080c;
+  --fg: #f5f5f7;
+  --muted: #b0b8c7;
+  --accent: #9ecff5;
+  --accent-secondary: #d2f0ff;
+  --surface: rgba(12, 16, 24, 0.7);
+  --surface-alt: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.14);
   --max-width: 1200px;
   --radius-lg: 28px;
   --radius-md: 18px;
@@ -24,7 +24,7 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #0a0f1f 0%, #04050b 55%);
+  background: radial-gradient(circle at top, #0e121a 0%, #040608 60%);
   color: var(--fg);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -41,9 +41,9 @@ body::after {
 }
 
 body::before {
-  background: radial-gradient(circle at 15% 20%, rgba(124, 120, 255, 0.35), transparent 55%),
-    radial-gradient(circle at 85% 12%, rgba(92, 224, 216, 0.25), transparent 45%);
-  filter: blur(10px);
+  background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.08), transparent 60%),
+    radial-gradient(circle at 85% 12%, rgba(158, 207, 245, 0.25), transparent 45%);
+  filter: blur(14px);
 }
 
 body::after {
@@ -172,10 +172,10 @@ a {
 .ghost-button {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-size: 14px;
   color: var(--fg);
-  background: rgba(12, 17, 32, 0.45);
+  background: rgba(13, 17, 26, 0.45);
   backdrop-filter: blur(18px);
 }
 
@@ -238,8 +238,8 @@ h3 {
 }
 
 .primary-button {
-  background: linear-gradient(120deg, #8a86ff, #6c63ff, #5ce0d8);
-  color: #05060f;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(200, 215, 230, 0.9));
+  color: #0a0c11;
 }
 
 .secondary-button {
@@ -377,8 +377,8 @@ h3 {
 }
 
 .glass-diagram {
-  background: rgba(11, 16, 30, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(12, 16, 24, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
   padding: 20px;
   backdrop-filter: blur(20px);
@@ -402,7 +402,7 @@ h3 {
 }
 
 .diagram-line {
-  stroke: url(#glassStroke);
+  stroke: rgba(214, 232, 244, 0.9);
   stroke-width: 3;
   stroke-linecap: round;
 }
@@ -504,27 +504,27 @@ h3 {
 }
 
 .doc-icon--story {
-  background: linear-gradient(135deg, #7c78ff, #5ce0d8);
+  background: linear-gradient(135deg, rgba(220, 234, 246, 0.9), rgba(168, 183, 198, 0.9));
 }
 
 .doc-icon--architecture {
-  background: linear-gradient(135deg, #82a4ff, #7c78ff);
+  background: linear-gradient(135deg, rgba(198, 211, 224, 0.9), rgba(150, 164, 180, 0.9));
 }
 
 .doc-icon--build {
-  background: linear-gradient(135deg, #5ce0d8, #8ef0ff);
+  background: linear-gradient(135deg, rgba(195, 224, 226, 0.9), rgba(158, 207, 245, 0.9));
 }
 
 .doc-icon--experience {
-  background: linear-gradient(135deg, #ff9df0, #7c78ff);
+  background: linear-gradient(135deg, rgba(244, 244, 244, 0.9), rgba(205, 211, 222, 0.9));
 }
 
 .doc-icon--operations {
-  background: linear-gradient(135deg, #ffd66b, #ff9df0);
+  background: linear-gradient(135deg, rgba(226, 233, 241, 0.9), rgba(196, 206, 219, 0.9));
 }
 
 .doc-icon--program {
-  background: linear-gradient(135deg, #7c78ff, #ffd66b);
+  background: linear-gradient(135deg, rgba(210, 224, 231, 0.9), rgba(178, 194, 210, 0.9));
 }
 
 .doc-grid a {
@@ -607,30 +607,16 @@ h3 {
   padding: 16px;
 }
 
-.quote-card {
-  background: linear-gradient(140deg, rgba(108, 99, 255, 0.2), rgba(37, 117, 252, 0.12));
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 18px 60px rgba(5, 6, 15, 0.55);
-  backdrop-filter: blur(26px);
-}
-
-.quote-card p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 14px;
-}
-
 .connect-card {
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 40px;
   display: flex;
   justify-content: space-between;
   gap: 24px;
   align-items: center;
-  background: linear-gradient(110deg, rgba(108, 99, 255, 0.18), rgba(45, 212, 191, 0.08));
+  background: rgba(12, 16, 24, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(26px);
 }
 
