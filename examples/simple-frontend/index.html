@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Wallet Example</title>
+    <style>
+        body { font-family: sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .hidden { display: none; }
+        #walletDetails, #error { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        #error { border-color: red; color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Open Wallet Example</h1>
+        <button id="createWalletBtn">Create Wallet</button>
+        <div id="walletDetails" class="hidden">
+            <h2>Wallet Details</h2>
+            <pre id="walletData"></pre>
+        </div>
+        <div id="error" class="hidden"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
