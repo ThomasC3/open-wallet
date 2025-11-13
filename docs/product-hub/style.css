@@ -1,16 +1,16 @@
 :root {
-  --bg: #03050d;
-  --fg: #f5f6fb;
-  --muted: #a7b0c4;
-  --accent: #6c63ff;
-  --accent-secondary: #2dd4bf;
-  --surface: rgba(11, 15, 30, 0.55);
-  --surface-alt: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.14);
-  --max-width: 1140px;
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 10px;
+  --bg: #03040a;
+  --fg: #f7f9ff;
+  --muted: #a7b4cd;
+  --accent: #7c78ff;
+  --accent-secondary: #5ce0d8;
+  --surface: rgba(13, 18, 36, 0.7);
+  --surface-alt: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --max-width: 1200px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
 }
@@ -22,22 +22,40 @@
 }
 
 body {
-  background: linear-gradient(145deg, #03050d 0%, #0d1020 55%, #161a33 100%);
+  background: radial-gradient(circle at top, #0a0f1f 0%, #04050b 55%);
   color: var(--fg);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   position: relative;
 }
 
-body::before {
+body::before,
+body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.35), transparent 55%),
-    radial-gradient(circle at 80% 10%, rgba(45, 212, 191, 0.25), transparent 50%),
-    radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.04), transparent 50%);
-  z-index: -1;
-  filter: blur(0px);
+  z-index: -2;
+  pointer-events: none;
+}
+
+body::before {
+  background: radial-gradient(circle at 15% 20%, rgba(124, 120, 255, 0.35), transparent 55%),
+    radial-gradient(circle at 85% 12%, rgba(92, 224, 216, 0.25), transparent 45%);
+  filter: blur(10px);
+}
+
+body::after {
+  background: radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.04), transparent 60%),
+    radial-gradient(circle at 20% 85%, rgba(124, 120, 255, 0.18), transparent 70%);
+  opacity: 0.8;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: calc(var(--max-width) + 160px);
+  margin: 0 auto;
+  padding-bottom: 120px;
 }
 
 a {
@@ -56,9 +74,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(5, 7, 15, 0.55);
-  backdrop-filter: blur(22px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 7, 15, 0.4);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .primary-nav .container {
@@ -100,17 +118,15 @@ a {
 .ghost-button {
   padding: 10px 18px;
   border-radius: 999px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 14px;
   color: var(--fg);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(12, 17, 32, 0.45);
   backdrop-filter: blur(18px);
 }
 
 .hero {
-  padding: 120px 0 80px;
-  background: rgba(255, 255, 255, 0.01);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 150px 0 110px;
 }
 
 .grid-two {
@@ -128,7 +144,7 @@ a {
 }
 
 h1 {
-  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-size: clamp(2.5rem, 5vw, 3.4rem);
   line-height: 1.1;
   margin-bottom: 20px;
 }
@@ -144,7 +160,7 @@ h3 {
 }
 
 .lead {
-  color: var(--muted);
+  color: rgba(247, 249, 255, 0.82);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 26px;
@@ -168,13 +184,14 @@ h3 {
 }
 
 .primary-button {
-  background: linear-gradient(120deg, #6c63ff, #8f7dff, #2dd4bf);
+  background: linear-gradient(120deg, #8a86ff, #6c63ff, #5ce0d8);
   color: #05060f;
 }
 
 .secondary-button {
   background: rgba(255, 255, 255, 0.08);
   color: var(--fg);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .metric-list {
@@ -233,12 +250,30 @@ h3 {
 }
 
 .section {
-  padding: 96px 0;
+  padding: 90px 0;
 }
 
 .tinted {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
+  background: transparent;
+}
+
+.frosted {
+  background: rgba(9, 13, 26, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  padding: 48px;
+  box-shadow: 0 30px 120px rgba(3, 4, 10, 0.65);
+  backdrop-filter: blur(32px);
+}
+
+.frosted + .frosted {
+  margin-top: 32px;
+}
+
+.hero-panel {
+  border-radius: 36px;
+  padding: 56px;
+  box-shadow: 0 40px 120px rgba(4, 5, 11, 0.65);
 }
 
 .align-center {
@@ -260,8 +295,8 @@ h3 {
 }
 
 .card-stack article {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(11, 16, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 24px;
   margin-bottom: 18px;
@@ -289,8 +324,8 @@ h3 {
 }
 
 .card-grid article {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(11, 16, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 24px;
   min-height: 220px;
@@ -338,8 +373,8 @@ h3 {
 }
 
 .doc-grid article {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(11, 16, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 24px;
   display: flex;
@@ -366,8 +401,8 @@ h3 {
 }
 
 .evidence-grid article {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(11, 16, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 24px;
   display: flex;
@@ -418,14 +453,14 @@ h3 {
 
 .connect-card {
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 40px;
   display: flex;
   justify-content: space-between;
   gap: 24px;
   align-items: center;
-  background: linear-gradient(110deg, rgba(108, 99, 255, 0.14), rgba(45, 212, 191, 0.1));
-  backdrop-filter: blur(22px);
+  background: linear-gradient(110deg, rgba(108, 99, 255, 0.18), rgba(45, 212, 191, 0.08));
+  backdrop-filter: blur(26px);
 }
 
 .connect-actions {
@@ -453,6 +488,10 @@ footer {
     padding: 18px 24px;
   }
 
+  .frosted {
+    padding: 28px;
+  }
+
   .nav-links {
     flex-wrap: wrap;
   }
@@ -478,6 +517,10 @@ footer {
 @media (max-width: 600px) {
   .hero {
     padding-top: 90px;
+  }
+
+  .hero-panel {
+    padding: 32px;
   }
 
   h1 {
