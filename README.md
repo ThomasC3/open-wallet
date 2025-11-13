@@ -6,6 +6,8 @@ Open Wallet is an open-source wallet infrastructure that transforms how business
 
 - By pre-funding user wallets and eliminating per-transaction payment processing fees, businesses can dramatically reduce costs to thier payment processing and increase profitability of existing and new revenue streams.
 
+> **Docs Hub**: Once GitHub Pages is enabled (Settings → Pages → “Deploy from branch”, `main`/`/docs`), the consolidated Product Hub will be available at `https://<your-org>.github.io/open-wallet/product-hub/`. You can also open the static file directly via [`docs/product-hub/index.html`](docs/product-hub/index.html).
+
 ## Table of Contents
 
 - [Why Tokenized Wallets?](#why-tokenized-wallets)
