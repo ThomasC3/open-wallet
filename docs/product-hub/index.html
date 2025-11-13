@@ -43,11 +43,11 @@
       <div class="container grid-two frosted hero-panel">
         <div>
           <p class="eyebrow">Product Documentation Hub</p>
-          <h1>Open Wallet reference surface</h1>
+          <h1>Open Wallet in plain language</h1>
           <p class="lead">
-            This page consolidates product documentation with external research
-            so teams evaluating tokenized wallets can trace every claim back to
-            a cited source.
+            Open Wallet is an open-source value store and token vault. This page
+            summarizes what the platform does, why it matters, and where to find
+            the technical detail.
           </p>
           <div class="hero-ctas">
             <a
@@ -133,19 +133,18 @@
         <div class="container grid-two align-center frosted">
           <div>
             <p class="eyebrow">Strategic Overview</p>
-            <h2>Tokenized wallets that compound revenue and loyalty.</h2>
+            <h2>What the platform solves</h2>
             <p>
-              Open Wallet pre-funds user accounts, routes transactions through
-              an internal tokenized ledger, and reduces exposure to payment
-              processors that add 2‑3% per swipe. These design choices map to
-              the data findings below.
+              Open Wallet lets teams move card funding to a secure vault, issue
+              balances inside their own ledger, and call predictable APIs to
+              debit, credit, or reconcile that value. The approach cuts per-swipe
+              fees and keeps sensitive data out of application scope.
             </p>
             <ul class="feature-list">
               <li>
-                <strong>Wallet adoption:</strong> FIS reports digital wallets
-                already account for half of global ecommerce and are on track
-                for 61% by 2027, so merchant experiences must assume wallet
-                primacy.
+                <strong>Wallet adoption:</strong> FIS reports digital wallets now
+                represent half of global ecommerce and are tracking toward 61% by
+                2027, so internal ledgers are no longer optional.
               </li>
               <li>
                 <strong>Stored-value float:</strong> MarketWatch notes Starbucks
@@ -154,8 +153,8 @@
               </li>
               <li>
                 <strong>Compliance leverage:</strong> Basis Theory’s PCI scope
-                analysis shows merchants can offload up to 93% of PCI controls
-                by vaulting sensitive data in a tokenized store.
+                study shows merchants can move up to 93% of PCI controls to a
+                vault provider by never touching card data directly.
               </li>
             </ul>
             <a
@@ -171,20 +170,37 @@
               <p class="eyebrow">Business Case</p>
               <h3>$531 saved per 1K transactions</h3>
               <p>
-                Quantified example of fees avoided when pilots switch to the
-                wallet-led settlement flow.
+                Example from the README: batching wallet deposits avoids
+                ~$531 in processor fees per 1,000 small-ticket rides.
               </p>
             </article>
             <article>
               <p class="eyebrow">Product Differentiators</p>
               <ul>
-                <li>Auto top-up and loyalty incentives</li>
-                <li>Composable API-first services</li>
-                <li>Mobile SDKs + Admin analytics</li>
-                <li>Deployment blueprints for cloud or hybrid</li>
+                <li>Auto top-up and balance rules</li>
+                <li>API-first wallet, token, and payout services</li>
+                <li>Reference mobile clients and admin UI</li>
+                <li>Docs for cloud or hybrid deployments</li>
               </ul>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container frosted data-card">
+          <p class="eyebrow">Data Snapshot</p>
+          <h2>Wallet usage vs. PCI scope reduction</h2>
+          <p>
+            The chart compares the share of ecommerce handled by wallets (FIS
+            Global Payments Report 2024) with the PCI workload merchants keep
+            after moving payment data into a managed vault (Basis Theory).
+          </p>
+          <canvas id="walletChart" aria-label="Wallet adoption compared to PCI scope" role="img"></canvas>
+          <p class="caption">
+            Wallet forecast: FIS Global Payments Report 2024. PCI scope numbers
+            from Basis Theory’s “Reducing PCI Scope” guidance.
+          </p>
         </div>
       </section>
 
@@ -193,7 +209,7 @@
           <div class="section-header">
             <div>
               <p class="eyebrow">Solution Plays</p>
-              <h2>Purpose-built journeys for top verticals.</h2>
+              <h2>How teams use Open Wallet</h2>
             </div>
             <a
               class="ghost-button"
@@ -207,32 +223,31 @@
             <article>
               <h3>Mobility & Transit</h3>
               <p>
-                Eliminate per-ride fees, batch payouts, and fuel volume through
-                commuter auto-loads.
+                Eliminate per-ride fees, pay drivers faster, and keep balances
+                ready for peak periods.
               </p>
               <span>Modules: Wallet Core, Ride Events, Driver Payouts</span>
             </article>
             <article>
               <h3>Commerce & Subscription</h3>
               <p>
-                Guard against involuntary churn, enable instant retries, and
-                bundle loyalty rewards.
+                Keep subscriptions active with wallet retries and consolidate
+                promo funds.
               </p>
               <span>Modules: Billing, Auto Top-Up, Promotions</span>
             </article>
             <article>
               <h3>Gaming & Digital Goods</h3>
               <p>
-                Micro-transaction economics with secure token vault and fraud
-                controls tuned for speed.
+                Make micro-purchases viable and vault tokens for compliance.
               </p>
               <span>Modules: Token Vault, Limits, Risk Signals</span>
             </article>
             <article>
               <h3>Marketplace Operations</h3>
               <p>
-                Multi-party ledger with escrow, release schedules, and
-                programmatic compliance checks.
+                Use the multi-party ledger for escrow, scheduled releases, and
+                KYB workflows.
               </p>
               <span>Modules: Escrow, KYB Workflow, Reporting</span>
             </article>
@@ -243,12 +258,12 @@
       <section id="journey" class="section">
         <div class="container grid-two align-center frosted">
           <div>
-            <p class="eyebrow">Launch Journey</p>
-            <h2>From assessment to scale in four confident steps.</h2>
-            <p>
-              Each phase links directly to decision guides, technical runbooks,
-              and tooling so cross-functional teams can stay aligned.
-            </p>
+              <p class="eyebrow">Launch Journey</p>
+              <h2>Four steps from assessment to scale</h2>
+              <p>
+                Each phase links to the relevant doc so product, engineering, and
+                compliance teams work from the same playbook.
+              </p>
             <ol class="journey-list">
               <li>
                 <strong>Assess</strong>
@@ -311,10 +326,10 @@
           <div class="section-header">
             <div>
               <p class="eyebrow">Documentation Hub</p>
-              <h2>Every product artifact, one navigation away.</h2>
+              <h2>Documentation map</h2>
               <p>
-                Curated references spanning product strategy, architecture,
-                implementation, and go-to-market enablement.
+                Every section below links directly into the repository for deeper
+                reading or immediate cloning.
               </p>
             </div>
           </div>
@@ -406,11 +421,10 @@
           <div class="section-header">
             <div>
               <p class="eyebrow">Evidence base</p>
-              <h2>Source links for further analysis.</h2>
+              <h2>Source links for further analysis</h2>
               <p>
-                These references underpin the statements on this page and offer
-                deeper dives into tokenized wallets, PCI scope reduction, and
-                closed-loop economics.
+                These are the public references used throughout the page. Each
+                link opens in a new tab.
               </p>
             </div>
           </div>
@@ -475,14 +489,11 @@
         <div class="container grid-two align-center frosted">
           <div>
             <p class="eyebrow">Highlighted Resources</p>
-            <h2>Stay aligned across product, engineering, and GTM.</h2>
+            <h2>Stay aligned across product, engineering, and GTM</h2>
             <ul class="resource-list">
               <li>
                 <strong>API Reference</strong>
-                <span
-                  >Inline examples and Postman collections power rapid
-                  integration.</span
-                >
+                <span>Endpoint examples and Postman collections for every service.</span>
                 <a
                   href="https://github.com/ThomasC3/open-wallet/tree/main/tests"
                   target="_blank"
@@ -492,10 +503,7 @@
               </li>
               <li>
                 <strong>Security & Compliance</strong>
-                <span
-                  >Token vault patterns, PCI alignment, and environment
-                  hardening.</span
-                >
+                <span>Token vault patterns, PCI controls, and environment hardening.</span>
                 <a
                   href="https://github.com/ThomasC3/open-wallet/blob/main/README.md#security"
                   target="_blank"
@@ -505,10 +513,7 @@
               </li>
               <li>
                 <strong>Mobile + Admin UX</strong>
-                <span
-                  >Reference implementations for driver apps and admin console
-                  orchestration.</span
-                >
+                <span>Reference implementations for driver apps and the admin console.</span>
                 <a
                   href="https://github.com/ThomasC3/open-wallet/tree/main/examples"
                   target="_blank"
@@ -518,13 +523,14 @@
               </li>
             </ul>
           </div>
-          <div class="quote-card">
+          <div class="resource-side-note">
+            <p class="eyebrow">Ops Notes</p>
             <p>
-              “Open Wallet gave us a way to convert payment fees into growth
-              margin while keeping compliance teams in the loop. This hub keeps
-              everyone—from product to ops—on the same page.”
+              The repository tracks issues for roadmap items, exposes environment
+              scripts for local, shared, and containerized setups, and documents
+              how to rotate vault credentials using the same flows production
+              teams use.
             </p>
-            <span>Director of Product, Mobility Pilot</span>
           </div>
         </div>
       </section>
@@ -571,5 +577,47 @@
         >
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById('walletChart');
+      const walletChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['2023', '2024', '2025', '2026', '2027'],
+          datasets: [
+            {
+              label: 'Wallet share of ecommerce (%)',
+              data: [50, 53, 56, 59, 61],
+              backgroundColor: 'rgba(124, 120, 255, 0.7)',
+              borderRadius: 6,
+            },
+            {
+              label: 'PCI scope retained with vault (%)',
+              data: [7, 7, 7, 7, 7],
+              backgroundColor: 'rgba(92, 224, 216, 0.7)',
+              borderRadius: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#f7f9ff' } },
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#a7b4cd' },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { color: '#a7b4cd', callback: (value) => `${value}%` },
+              grid: { color: 'rgba(255,255,255,0.08)' },
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
