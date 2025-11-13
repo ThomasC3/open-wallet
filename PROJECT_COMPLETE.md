@@ -2,7 +2,7 @@
 
 ## Summary
 
-Successfully created **Open Wallet**, an open-source mobile wallet system by extracting and repurposing the Basis Theory wallet integration from Circuit (FreeRide) PR #1411, removing all proprietary branding and dependencies.
+Successfully created **Open Wallet**, an open-source mobile wallet system
 
 ## What Was Created
 
