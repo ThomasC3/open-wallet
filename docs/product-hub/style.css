@@ -73,6 +73,18 @@ main {
   padding: var(--grid-gap) 0 120px;
 }
 
+.page-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--grid-gap);
+}
+
+.content-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -92,6 +104,33 @@ a {
   background: rgba(5, 7, 15, 0.4);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+  padding: calc(var(--grid-gap) * 0.9);
+}
+
+.sidebar-nav ol {
+  list-style: decimal-leading-zero;
+  margin-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.sidebar-nav a {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.sidebar-note {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .primary-nav .container {
@@ -321,6 +360,53 @@ h3 {
   background-image: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 45%);
 }
 
+.catechism {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.catechism dt {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.catechism dd {
+  margin-left: 0;
+  color: var(--muted);
+}
+
+.glass-diagram {
+  background: rgba(11, 16, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+.glass-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.glass-diagram text {
+  fill: var(--fg);
+  font-size: 12px;
+}
+
+.diagram-card {
+  fill: rgba(7, 11, 24, 0.7);
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+}
+
+.diagram-line {
+  stroke: url(#glassStroke);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
 .card-stack ul {
   list-style: disc;
   padding-left: 18px;
@@ -399,6 +485,46 @@ h3 {
   flex-direction: column;
   gap: 8px;
   backdrop-filter: blur(22px);
+}
+
+.doc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.doc-icon--story {
+  background: linear-gradient(135deg, #7c78ff, #5ce0d8);
+}
+
+.doc-icon--architecture {
+  background: linear-gradient(135deg, #82a4ff, #7c78ff);
+}
+
+.doc-icon--build {
+  background: linear-gradient(135deg, #5ce0d8, #8ef0ff);
+}
+
+.doc-icon--experience {
+  background: linear-gradient(135deg, #ff9df0, #7c78ff);
+}
+
+.doc-icon--operations {
+  background: linear-gradient(135deg, #ffd66b, #ff9df0);
+}
+
+.doc-icon--program {
+  background: linear-gradient(135deg, #7c78ff, #ffd66b);
 }
 
 .doc-grid a {
@@ -531,6 +657,14 @@ footer {
     gap: 16px;
     height: auto;
     padding: 18px 24px;
+  }
+
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-nav {
+    position: static;
   }
 
   .frosted {
